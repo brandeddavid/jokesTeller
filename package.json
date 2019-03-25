@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/brandeddavid/jokesTeller#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "slackbots": "^1.2.0"
   }
 }

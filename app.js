@@ -2,7 +2,7 @@ const slackBot = require('slackbots');
 const axios = require('axios');
 
 const bot = new slackBot({
-  token: 'xoxb-587609893589-587260394564-fsG8M47qEMgonlFHKqgo1UxJ',
+  token: 'xoxb-587609893589-587260394564-qdkYLGOAvV0ZYQrkiShYtIga',
   name: 'jokesBot',
 });
 
@@ -30,13 +30,13 @@ bot.on('message', data => {
 // Handles user message
 handleMessage = message => {
   if(message.includes(' chuck')){
-    chuckNorris()
+    chuckNorrisJoke()
   } else if (message.includes(' mama')){
-    yoMama()
+    yoMamaJoke()
   }
 }
 
-chuckNorris = () => {
+chuckNorrisJoke = () => {
   const api = 'https://api.icndb.com/jokes/random'
   axios.get(api)
     .then(response => {
@@ -46,8 +46,13 @@ chuckNorris = () => {
     .catch(error => console.log(error));
 }
 
-yoMama = () => {
-  console.log('Yo Mama Joke')
+yoMamaJoke = () => {
+  const api = 'https://api.yomomma.info';
+  axios.get(api)
+    .then(response => {
+      const joke = `Yo Mama: ${response.data.joke})`;
+      sendJoke(joke)
+    }).catch(error => console.log(error));
 }
 
 sendJoke = joke => {

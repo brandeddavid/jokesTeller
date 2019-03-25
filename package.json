@@ -1,0 +1,29 @@
+{
+  "name": "jokesteller",
+  "version": "1.0.0",
+  "description": "A Slack Bot that tells random Chuck Norris and Yo Mama jokes",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "node app.js",
+    "start:dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandeddavid/jokesTeller.git"
+  },
+  "keywords": [
+    "slack",
+    "bot",
+    "slackbot"
+  ],
+  "author": "David Mwangi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandeddavid/jokesTeller/issues"
+  },
+  "homepage": "https://github.com/brandeddavid/jokesTeller#readme",
+  "dependencies": {
+    "slackbots": "^1.2.0"
+  }
+}

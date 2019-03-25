@@ -23,5 +23,22 @@ bot.on('message', data => {
     return;
   }
 
-  console.log(data);
+  handleMessage(data.text)
 })
+
+// Handles user message
+handleMessage = message => {
+  if(message.includes(' chuck')){
+    chuckNorris()
+  } else if (message.includes(' mama')){
+    yoMama()
+  }
+}
+
+chuckNorris = () => {
+  console.log('Chuck Norris Joke')
+}
+
+yoMama = () => {
+  console.log('Yo Mama Joke')
+}

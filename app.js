@@ -1,8 +1,11 @@
 const slackBot = require('slackbots');
 const axios = require('axios');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const bot = new slackBot({
-  token: 'xoxb-587609893589-587260394564-NbsZyAbeWtqiDvUXSD7e0lwr',
+  token: process.env.token,
   name: 'jokesBot',
 });
 
@@ -12,7 +15,7 @@ bot.on('start', () => {
     icon_emoji: ':smiley:',
   }
 
-  bot.postMessageToChannel('general', `Get ready for the fun with @jokesBot. Use the 'help' command to know what you can do`, params)
+  bot.postMessageToChannel('general', `Get ready for the fun with @jokesBot. Use the 'help' command to know what you can doqq`, params)
 });
 
 // Error handler
@@ -33,6 +36,8 @@ handleMessage = message => {
     chuckNorrisJoke()
   } else if (message.includes(' mama')){
     yoMamaJoke()
+  } else if (message.includes(' random')){
+    return;
   } else if (message.includes(' help')){
     getHelp()
   }

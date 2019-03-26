@@ -2,7 +2,7 @@ const slackBot = require('slackbots');
 const axios = require('axios');
 
 const bot = new slackBot({
-  token: 'xoxb-587609893589-587260394564-qdkYLGOAvV0ZYQrkiShYtIga',
+  token: 'xoxb-587609893589-587260394564-NbsZyAbeWtqiDvUXSD7e0lwr',
   name: 'jokesBot',
 });
 
@@ -12,7 +12,7 @@ bot.on('start', () => {
     icon_emoji: ':smiley:',
   }
 
-  bot.postMessageToChannel('general', 'Get ready for the fun with @jokesBot', params)
+  bot.postMessageToChannel('general', `Get ready for the fun with @jokesBot. Use the 'help' command to know what you can do`, params)
 });
 
 // Error handler
@@ -33,6 +33,8 @@ handleMessage = message => {
     chuckNorrisJoke()
   } else if (message.includes(' mama')){
     yoMamaJoke()
+  } else if (message.includes(' help')){
+    getHelp()
   }
 }
 
@@ -61,4 +63,15 @@ sendJoke = joke => {
   }
 
   bot.postMessageToChannel('general', joke, params)
+}
+
+// Improvement: random jokes, send to user instead of to a channel, help, tests
+
+getHelp = () => {
+  const params = {
+    icon_emoji: ':question:'
+  }
+  helpMessage = `Please use the following commands 'chuck' for a Chuck Norris joke, 'mama' for a Yo Mama joke and, 'random' for a random joke`
+
+  bot.postMessageToChannel('general', helpMessage, params)
 }

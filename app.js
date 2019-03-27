@@ -33,13 +33,13 @@ bot.on('message', data => {
 // Handles user message
 handleMessage = message => {
   if(message.includes(' chuck')){
-    chuckNorrisJoke()
+    chuckNorrisJoke();
   } else if (message.includes(' mama')){
-    yoMamaJoke()
+    yoMamaJoke();
   } else if (message.includes(' random')){
-    return;
+    randomJoke();
   } else if (message.includes(' help')){
-    getHelp()
+    getHelp();
   }
 }
 
@@ -58,8 +58,18 @@ yoMamaJoke = () => {
   axios.get(api)
     .then(response => {
       const joke = `Yo Mama: ${response.data.joke})`;
-      sendJoke(joke)
+      sendJoke(joke);
     }).catch(error => console.log(error));
+}
+
+randomJoke = () => {
+  const choice = Math.floor(Math.random()*2 + 1)
+
+  if (choice === 1){
+    chuckNorrisJoke();
+  } else if (choice === 2){
+    yoMamaJoke();
+  }
 }
 
 sendJoke = joke => {
